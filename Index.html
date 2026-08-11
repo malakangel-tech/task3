@@ -2,39 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>To Do List</title>
-
+<title>Counter</title>
 <style>
 body{
-font-family:Arial;
-text-align:center;
+    font-family:Arial;
+    text-align:center;
+    margin-top:80px;
 }
 
-.done{
-text-decoration:line-through;
-color:gray;
+.dark{
+    background:#222;
+    color:white;
 }
 
-li{
-margin:10px;
+button{
+    padding:10px 20px;
+    margin:5px;
 }
 </style>
-
 </head>
 
 <body>
 
-<h2>To Do List</h2>
+<h1 id="count">0</h1>
 
-<input id="task">
+<button onclick="increase()">+</button>
+<button onclick="decrease()">-</button>
+<button onclick="reset()">Reset</button>
 
-<button onclick="addTask()">Add</button>
+<br><br>
 
-<p>Total Tasks :
-<span id="total">0</span>
-</p>
+<input type="number" id="number">
 
-<ul id="list"></ul>
+<button onclick="setValue()">Set Value</button>
+
+<br><br>
+
+<button onclick="darkMode()">Dark Mode</button>
+
+<p>Clicks : <span id="clicks">0</span></p>
 
 <script src="app.js"></script>
 

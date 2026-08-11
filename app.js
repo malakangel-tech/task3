@@ -1,26 +1,33 @@
-let total = 0;
-function addTask(){
-let input = document.getElementById("task");
-if(input.value === ""){
-    alert("Enter Task");
-    return;
+let count = 0;
+let clicks = 0;
+
+function update(){
+    document.getElementById("count").innerText = count;
+    document.getElementById("clicks").innerText = clicks;
 }
-let li = document.createElement("li");
-li.innerHTML = `
-${input.value}
-<button onclick="done(this)">Done</button>
-<button onclick="removeTask(this)">Delete</button>
-`;
-document.getElementById("list").appendChild(li);
-total++;
-document.getElementById("total").innerText = total;
-input.value = "";
+
+function increase(){
+    count++;
+    clicks++;
+    update();
 }
-function removeTask(button){
-button.parentElement.remove();
-total--;
-document.getElementById("total").innerText = total;
+
+function decrease(){
+    count--;
+    clicks++;
+    update();
 }
-function done(button){
-button.parentElement.classList.toggle("done");
+
+function reset(){
+    count = 0;
+    update();
+}
+
+function setValue(){
+    count = Number(document.getElementById("number").value);
+    update();
+}
+
+function darkMode(){
+    document.body.classList.toggle("dark");
 }
